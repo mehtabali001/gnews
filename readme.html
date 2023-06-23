@@ -23,3 +23,15 @@ data.
 with additional Meta information. 
 
 
+Remember, the API response will hit every hour to get new posts from the https://gnews.io
+if you want to change the URI Query open function.php and update here:
+
+
+// Function to fetch and store news articles
+function fetch_and_store_news_articles() {
+    // Make API request
+    $api_key = '7701d900d20828c2aab3489af56ae587'; // Replace with your gnews.io API key
+    $endpoint = 'https://gnews.io/api/v4/search?q=articles&lang=en&country=us&max=5&token=' . $api_key; // Replace "example" with your desired search query
+    $response = wp_remote_get( $endpoint );
+
+ 
